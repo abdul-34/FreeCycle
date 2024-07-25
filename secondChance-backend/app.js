@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const pinoLogger = require("./logger");
 const secondChanceItemsRoutes = require("./routes/secondChanceItemsRoutes.js");
+const searchRoutes = require("./routes/searchRoutes.js");
 const { connectToDatabase } = require("./models/db");
 const { loadData } = require("./util/import-mongo/index");
 
@@ -29,6 +30,7 @@ app.use(express.json());
 //{{insert code here}}
 
 app.use("/api/secondchance/items", secondChanceItemsRoutes);
+app.use("/api/secondchance/search", searchRoutes);
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
 //{{insert code here}}
 
