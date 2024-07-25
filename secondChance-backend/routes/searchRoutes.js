@@ -19,10 +19,10 @@ router.get("/", async (req, res, next) => {
     }
 
     if (req.query.category) {
-      query.push({ category: { $regex: req.query.category, $options: "i" } }); // Using regex for partial match, case-insensitive
+      query.push({ category: req.query.category }); // Using regex for partial match, case-insensitive
     }
     if (req.query.condition) {
-      query.push({ condition: { $regex: req.query.condition, $options: "i" } }); // Using regex for partial match, case-insensitive
+      query.push({ condition: req.query.conditio }); // Using regex for partial match, case-insensitive
     }
     if (req.query.age_years) {
       query.push({ age_years: { $lte: parseInt(req.query.age_years) } });
