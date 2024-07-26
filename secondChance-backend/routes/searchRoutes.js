@@ -4,7 +4,6 @@ const { connectToDatabase } = require("../models/db");
 
 // Search for gifts
 router.get("/", async (req, res, next) => {
-  console.log(req.query.name);
   let client;
   try {
     const { db, client: connectedClient } = await connectToDatabase();
@@ -31,7 +30,6 @@ router.get("/", async (req, res, next) => {
     let finalQuery = query.length ? { $or: query } : {};
 
     const gifts = await collection.find(finalQuery).toArray();
-    console.log(finalQuery);
     res.json(gifts);
   } catch (e) {
     next(e);
